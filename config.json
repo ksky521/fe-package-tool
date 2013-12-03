@@ -1,0 +1,9 @@
+{
+    "map": {
+        "./assets/css": {
+            "id": "/zmkm/{$dirname}/{$basename}"
+        }
+    },
+    "domain": "http://feel.baidu.com/zmkm/assets/",
+    "output": "output"
+}

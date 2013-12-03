@@ -1,0 +1,13 @@
+{
+    "name": "fe-package-tool",
+    "version": "0.1.0",
+    "description": "The best project ever.",
+    "author": {
+        "name": "Theowang",
+        "email": "ksky521@gmail.com"
+    },
+    "dependencies": {
+        "clean-css":"2.0.2",
+        "uglify-js":"2.4.6"
+    }
+}
