@@ -64,7 +64,7 @@ for (var rootDir in map) {
                     return function(err, css) {
                         if (domain) {
                             //改为绝对路径
-                            css = relative2absolute(css);
+                            css = relative2absolute(css, URL.resolve(domain, rootdir));
                         }
                         css = clean_css.minify(css);
                         event.emit(filepath, key, css);
@@ -91,7 +91,6 @@ event.once('end', function() {
         content = ['<?php', 'return ' + content + ';', '?>'].join('\n');
 
         $.writeFile('output.php', content, 'utf-8');
-
     }
 
 });
@@ -130,7 +129,7 @@ function str2RegExp(str) {
  * @param  {[type]} cssCode [description]
  * @return {[type]}         [description]
  */
-function relative2absolute(cssCode) {
+function relative2absolute(cssCode, domain) {
     var cssImgRegex = /url\s?\(['"]?(.*?)(?=['"]?\))/gi,
         absoluteUrlRegex = /^\//,
         externalUrlRegex = /http/,
@@ -148,7 +147,6 @@ function relative2absolute(cssCode) {
     }
     urls.forEach(function(path) {
         cssCode = cssCode.replace(path, URL.resolve(domain, path));
-
     });
     return cssCode;
 }
